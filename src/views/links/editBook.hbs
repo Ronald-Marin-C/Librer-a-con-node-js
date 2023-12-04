@@ -1,0 +1,119 @@
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("form").addEventListener("submit", function (event) {
+      var formValid = true;
+
+      // Iterar sobre los elementos del formulario
+      this.querySelectorAll(".form-control").forEach(function (input) {
+        // Verificar si el valor contiene solo espacios
+        if (input.value.trim() === "") {
+          // Si es así, marcar el formulario como no válido y agregar una clase de error al campo
+          formValid = false;
+          input.classList.add("is-invalid");
+        } else {
+          // Si no contiene solo espacios, quitar la clase de error si está presente
+          input.classList.remove("is-invalid");
+        }
+      });
+
+      // Si el formulario no es válido, prevenir el envío
+      if (!formValid) {
+        event.preventDefault();
+      }
+    });
+  });
+</script>
+
+<div class="container p-4">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <h1 style="color: aliceblue;">Editar libro</h1>
+                <p style="color: aliceblue;"><em>Aquí puedes editar</em></p>
+                <form action="/links/editBook/{{links.LibroID}}" method="POST">
+                  <div class="alert alert-secondary">
+                    <h2>Datos</h2>
+                    <p></p>
+                    <div class="row">
+                        <!-- Columna 1 -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="titulo">Titulo</label>
+                                <input type="text" value="{{links.Titulo}}" class="form-control" name="titulo" placeholder="Titulo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="autor">Autor</label>
+                                <input type="text" value="{{links.Autor}}" class="form-control" name="autor" pattern="[A-Za-zñÑ]+" placeholder="Autor" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="anioPublicacion">Año de Publicación</label>
+                                <input type="number" value="{{links.AnioPublicacion}}" class="form-control" name="aniopublicacion" placeholder="Año" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="genero">Genero</label>
+                                <input type="text" value="{{links.Genero}}" class="form-control" name="genero" pattern="[A-Za-zñÑ]+" placeholder="Genero" required>
+                            </div>
+                        </div>
+                        <!-- Columna 2 -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="numpaginas">Número de Paginas</label>
+                                <input type="number" value="{{links.NumPaginas}}" class="form-control" name="numpaginas" placeholder="Número de Paginas" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editorial">Editorial</label>
+                                <input type="text" value="{{links.Editorial}}" class="form-control" name="editorial" placeholder="Editorial" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ISSN">ISSN</label>
+                                <input type="text" value="{{links.ISSN}}" class="form-control" name="ISSN" placeholder="ISSN" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="idioma">Idioma</label>
+                                <input type="text" value="{{links.Idioma}}" class="form-control" name="idioma" pattern="[A-Za-zñÑ]+" placeholder="Idioma" required>
+                            </div>
+                        </div>
+                        <!-- Columna 3 -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="fechaPublicacion">Fecha de Publicación</label>
+                                <input type="date" value="{{links.FechaPublicacion}}" class="form-control" name="fechapublicacion" id="fechaPublicacion" max="">
+                            </div>
+                            <script>
+                                // Obtener la fecha actual
+                                var today = new Date();
+
+                                // Restar un día a la fecha actual
+                                var yesterday = new Date(today);
+                                yesterday.setDate(today.getDate() - 1);
+
+                                // Formatear la fecha de ayer en el formato 'YYYY-MM-DD'
+                                var yesterdayFormatted = yesterday.toISOString().split('T')[0];
+
+                                // Establecer la fecha máxima en el campo de fecha
+                                document.getElementById('fechaPublicacion').setAttribute('max', yesterdayFormatted);
+                            </script>
+                            <div class="form-group">
+                                <label for="estado">Estado</label>
+                                <select value="{{links.Estado}}" class="form-control" name="estado" required>
+                                    <option value="nuevo">Nuevo</option>
+                                    <option value="usado">Usado</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input type="number" value="{{links.Precio}}" class="form-control" name="precio" placeholder="Precio" required>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary">Editar</button>
+                        <a href="/links/TableBooks" class="btn btn-danger">Cancelar</a>
+                    </div>
+                  
+                </form>
+            </div>
+        </div>
+    </div>

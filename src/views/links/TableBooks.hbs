@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="rounded p-4" style="background-color: rgba(243, 228, 228, 0.744);">
+        <h1 style="color: rgb(41, 39, 39);">Gestionar Libros</h1>
+        <form action="/links/newbook" method="GET">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-8 text-md-right">
+                    <button class="btn btn-primary">Añadir nuevo libro</button>
+                </div>
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table class="rounded table table-striped mt-4" style="background: rgb(255, 255, 255);">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"><input type="checkbox"></th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Año Publicación</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Número de Páginas</th>
+                        <th scope="col">Editorial</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each books as |book|}}
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>{{book.CodigoUnico}}</td>
+                            <td>{{book.Titulo}}</td>
+                            <td>{{book.Autor}}</td>
+                            <td>{{book.AnioPublicacion}}</td>
+                            <td>{{book.Genero}}</td>
+                            <td>{{book.NumPaginas}}</td>
+                            <td>{{book.Editorial}}</td>
+                            <td><img src="{{book.imagen}}" alt="Libro" class="img-thumbnail" style="max-width: 50px;"></td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="/links/editBook/{{book.LibroID}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href="/links/deletelibro/{{book.LibroID}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,88 @@
+ <div class="container p-4">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <h1 style="color: aliceblue;">Editar perfil</h1>
+                <p style="color: aliceblue;"><em>Aquí puedes editar tu perfil</em></p>
+                <form action="/links/edit/{{user.UsuarioID}}" method="POST">
+                  <div class="alert alert-secondary">
+                    <h2>Información personal</h2>
+                    <p></p>
+                    <div class="row">
+                        <!-- Columna 1 -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" name="Nombres" placeholder="Nombre" value="{{link.Nombres}}" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="nombre">Usuario</label>
+                                <input type="text" class="form-control" name="Usuario" placeholder="Usuario" value="{{link.Usuario}}" autocomplete="off">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" name="FechaNacimiento" value="{{link.FechaNacimiento}}" autocomplete="off"> 
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion1">Dirección de Correspondencia</label>
+                                <input type="text" class="form-control" name="DirCorrespondencia" placeholder="Dirección de correspondencia" value="{{link.DirCorrespondencia}}" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmarContrasena1">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" name="Contrasena" placeholder="Confirmar Contraseña">
+                            </div>
+                        </div>
+                        <!-- Columna 2 -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="apellidos">Apellidos</label>
+                                <input type="text" class="form-control" name="Apellidos" placeholder="Apellidos" value="{{link.Apellidos}}" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="numeroIdentidad">Número de Identidad</label>
+                                <input type="text" class="form-control" name="DNI" placeholder="Número de Identidad" value="{{link.DNI}}" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="lugarNacimiento">Lugar de Nacimiento</label>
+                                <input type="text" class="form-control" name="LugarNacimiento" placeholder="Lugar de Nacimiento" value="{{link.LugarNacimiento}}" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="temasLiterarios">Temas Literarios de Preferencia</label>
+                                <input type="text" class="form-control" name="TemasPreferencia" placeholder="Temas Literarios de Preferencia" value="{{link.TemasPreferencia}}" autocomplete="off">
+                            </div>
+                        </div>
+                        <!-- Columna 3 -->
+                        <div class="col-md-4">
+                            <!-- 
+                                <div class="form-group">
+                              <label for="numeroTelefono">Número Telefónico</label>
+                                <input type="tel" class="form-control" name="numeroTelefono" placeholder="Número Telefónico">
+                            </div> -->
+                            <div class="form-group">
+                                <label for="correoElectronico">Correo Electrónico</label>
+                                <input type="email" class="form-control" name="CorreoElectronico" placeholder="Correo Electrónico" value="{{link.CorreoElectronico}}" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="Genero">Género</label>
+                                <select class="form-control" name="Genero" value="{{link.Genero}}">
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contrasena">Contraseña</label>
+                                <input type="password" class="form-control" name="contrasena" placeholder="Contraseña">
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary">Confirmar modificaciones</button>
+                        <button class="btn btn-secondary">Cancelar</button>
+                    </div>
+                  
+                </form>
+            </div>
+        </div>
+    </div>

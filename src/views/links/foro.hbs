@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Foro</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .forum-header {
+      position: relative;
+      background-image: url('/img/foro.jpg');
+      background-size: cover;
+      color: #fff;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Ajusta el valor alpha para controlar la opacidad */
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+    .forum-container {
+      margin-top: 30px;
+    }
+    .forum-post {
+      background-color: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cabecera del Foro -->
+<div class="forum-header">
+  <div class="overlay"></div>
+  <div class="header-content">
+    <h1>Foro de Discusión</h1>
+    <p>Bienvenido al lugar donde puedes compartir y discutir ideas.</p>
+  </div>
+</div>
+
+  <!-- Contenedor del Foro -->
+  <div class="container forum-container">
+    <!-- Publicación 1 -->
+    <div class="forum-post">
+      <h2>Título de la Publicación 1</h2>
+      <p>Autor: Usuario1 | Fecha: 2023-11-22</p>
+      <p>Contenido de la publicación. Aquí puedes escribir tus pensamientos y comentarios.</p>
+    </div>
+
+    <!-- Publicación 2 -->
+    <div class="forum-post">
+      <h2>Título de la Publicación 2</h2>
+      <p>Autor: Usuario2 | Fecha: 2023-11-23</p>
+      <p>Otro contenido interesante para discutir en el foro.</p>
+    </div>
+
+    <!-- Agregar Nueva Publicación -->
+    <div class="forum-post">
+      <h2>Nueva Publicación</h2>
+      <form>
+        <div class="form-group">
+          <label for="postTitle">Título:</label>
+          <input type="text" class="form-control" id="postTitle" placeholder="Ingrese el título de la publicación">
+        </div>
+        <div class="form-group">
+          <label for="postContent">Contenido:</label>
+          <textarea class="form-control" id="postContent" rows="3" placeholder="Escriba aquí..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Publicar</button>
+      </form>
+    </div>
+  </div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

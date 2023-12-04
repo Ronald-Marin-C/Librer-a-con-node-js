@@ -1,0 +1,75 @@
+<div class="rounded  p-4 container mt-5" style="background-color: rgba(243, 228, 228, 0.744);">
+    <h1 style="color: rgb(41, 39, 39);">Gestionar Administradores</h1>
+    <form action="/links/newAdmin" method="GET">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Buscar">
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-primary">Filtrar</button>
+            </div>
+            <div class="col-md-5 text-right">
+                <button class="btn btn-primary mr-2">Añadir nuevo administrador</button>
+            </div>
+        </div>
+    </form>
+    <table class="rounded  table mt-4" style="background: rgb(255, 255, 255);">
+        
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"><input type="checkbox"></th>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Ubicación</th>
+            <th scope="col">Acciones</th> <!-- Cambié el encabezado a "Acciones" -->
+        </tr>
+    </thead>
+    <tbody>
+        {{#each admins as |admin|}}
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>{{admin.DNI}}</td>
+                <td>{{admin.Nombres}}</td>
+                <td>{{admin.CorreoElectronico}}</td>
+                <td>{{admin.DirCorrespondencia}}</td>
+                <td>
+                    <!-- Agregamos enlaces con íconos de FontAwesome para editar y eliminar -->
+                    <a href="/links/editAdmin/{{admin.UsuarioID}}"><i class="fas fa-edit"></i></a>
+                    <a href="/links/delete/{{admin.UsuarioID}}"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Filas por página:</label>
+                <select class="form-control">
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6 text-right">
+            <button class="btn btn-light">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="btn btn-light">
+                <i class="fas fa-caret-left"></i>
+            </button>
+            <button class="btn btn-light">
+                <i class="fas fa-caret-right"></i>
+            </button>
+            <button class="btn btn-light">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
