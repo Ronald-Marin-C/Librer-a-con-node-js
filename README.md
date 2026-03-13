@@ -7,5 +7,3 @@
 - src, it's all the code for the Backend and Frontend Application
 - docs
 
-## Tutorial
-- [Youtube Tutorial](https://youtu.be/qJ5R9WTW0_E)
